@@ -1,0 +1,38 @@
+*-*-*
+打包zip
+ipc_send('saveAsZip', {
+
+})
+*-*-*
+默认浏览器打开链接
+ipc_send('url', 'https://www.baidu.com')
+*-*-*
+默认应用打开文件
+ipc_send('openFile', 'C://video.mp4')
+*-*-*
+定位到目录
+ipc_send('openFolder', 'C://folder1/')
+*-*-*
+下载文件
+let lastProgress
+downloadFile({
+    url: 'https://dldir1.qq.com/qqfile/qq/PCQQ9.7.17/QQ9.7.17.29230.exe',
+    saveTo: nodejs.dir+'/qq.exe',
+    progress: val => {
+        val = parseInt(val)
+        if(val != lastProgress){
+            lastProgress = val
+            console.info(val+'%')
+        }
+    },
+    complete: (saveTo, url) => console.info('成功保存文件到'+saveTo),
+    error: err => console.info('下载时出错:'+err.toString())
+})
+*-*-*
+解压zip
+unZip({
+    input: 'to/path/demo.zip', 
+    output: 'to/path/output/',
+    // 检查压缩包是否包含指定文件
+    // check: entry => entry.type == 'File' && getFileName(entry.path) == 'app.json' && entry.vars.uncompressedSize > 0
+}, () => console.info('成功解压'), err => console.info('解压失败'+err.toString()))

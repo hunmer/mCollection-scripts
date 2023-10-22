@@ -1,0 +1,104 @@
+*-*-*
+解析ini
+console.info(
+    parseINI(`
+        [config]
+        version=1.0
+    `)
+)
+*-*-*
+解析xml
+console.info(
+    parseXML(`
+        <versions>
+            <project file="config.xml" version="25"/>
+        </versions>
+    `)
+)
+*-*-*
+保证文本开头
+console.info(checkStartsWith('baidu.com', 'http://'))
+*-*-*
+格式化文本
+console.info(formatText('%name% is %age% years old', {name: 'steve', age: 23}))
+*-*-*
+转换为浏览器可打开地址
+console.info(fileToUrl('C:/a.mp4'))
+*-*-*
+浏览器地址转为本地路径
+console.info(urlToFile('C:/a.mp4'))
+*-*-*
+生成url地址
+console.info(toURL('https://www.baidu.com', {search: 'a'}))
+*-*-*
+比较两个对象属性变化
+console.info(obj_compare({a: 'a', b: 'b'}, {a: 'a1', c: 'c'}))
+*-*-*
+比较两个数组成员变化
+console.info(arr_compare(['a', 'b'], ['a', 'c']))
+*-*-*
+数组是否在另外一个数组中
+console.info(arr_include(['a'], ['a', 'b']))
+*-*-*
+数组是否相等
+console.info(arr_equal(['a'], ['a']))
+*-*-*
+取中间文本
+console.info(cutString('abc', 'a', 'c'))
+*-*-*
+批量取中间文本
+console.info(matchTexts('abc|aec','a', 'c'))
+*-*-*
+滚动元素
+scrollY(document.body, 100)
+*-*-*
+是否有滚动条
+console.info(isScroll(document.body))
+*-*-*
+查找并替换多个class
+replaceClass(document.body, 'class1 class2', 'newClass')
+*-*-*
+当前是否正在输入
+console.info(isInputFocused())
+*-*-*
+数组去重
+console.info(uniqueArr(['a', 'a']))
+*-*-*
+查找指定属性开头的元素列表
+console.info(getPrefixedEle('category_'))
+*-*-*
+查找data-action元素
+console.info(getEle('menu'))
+*-*-*
+查找data元素
+console.info(getEle({action: 'menu'}, '.ti'))
+*-*-*
+获取父元素指定attr值
+console.info(getParentAttr(dom, 'data-md5'))
+*-*-*
+获取父元素指定data值
+console.info(getParentData(dom, 'md5'))
+*-*-*
+查找父元素
+console.info(getParent(dom, 'data-md5'))
+*-*-*
+查找子元素
+console.info(getChild(dom, 'data-md5'))
+*-*-*
+获取子元素指定attr值
+console.info(getChildAttr(dom, 'data-md5'))
+*-*-*
+获取子元素指定data值
+console.info(getChildData(dom, 'md5'))
+*-*-*
+时间转秒数
+console.info(toTime('01:33'))
+*-*-*
+秒数转时间
+console.info(toTime(90))
+*-*-*
+取范围随机数
+console.info(randNum(1, 10))
+*-*-*
+转为数组
+console.info(toArr('a'))

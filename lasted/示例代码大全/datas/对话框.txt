@@ -1,0 +1,56 @@
+*-*-*
+消息提示
+toast('hello', 'success', 2000)
+*-*-*
+高级消息提示
+g_toast.toast({
+    text: 'hello',
+    title: '提示',
+    level: 'info',
+    timeout: 2000,
+    icon: 'ti-check', // http://
+})
+*-*-*
+提示框
+alert('hello', {title: '标题'})
+*-*-*
+带颜色提示框
+alert('hello', {type: 'success'}) // danger 
+*-*-*
+全屏对话框
+alert('hello', {type: 'fullscreen'})
+*-*-*
+输入框
+prompt('默认文本', {title: '输入框', placeHolder: '请输入文本'}).then(val => console.info('你输入的是'+val))
+*-*-*
+询问框
+confirm('确定吗', {title: '询问'}).then(ok=>console.info(ok))
+*-*-*
+自定义询问框按钮
+confirm('要吗?', {title: '询问', btn_ok: '要', btn_cancel: '不要'}).then(ok=>console.info(ok))
+*-*-*
+自定义对话框
+g_modal.modal_build({
+    title: '标题',
+    html: '<h1>hello</h1>',
+    width: '70%',
+    buttons: [{
+        text: '按钮1',
+        class: 'btn-primary',
+        id: 'btn1',
+        onClick: e=>alert('你点了按钮1')
+    }, {
+        text: '按钮2',
+        class: 'btn-danger',
+        id: 'ok', // ok或者cancel点击后会自动关闭窗口
+        onClick: e=>alert('你点了按钮2')
+    }, {
+        text: '按钮3',
+        class: 'btn-warning',
+        id: 'cancel',
+        onClick: e=>{
+            alert('你点了按钮3')
+            return false // 不自动关闭窗口
+        }
+    }]
+})

@@ -1,0 +1,88 @@
+*-*-*
+最大化窗口
+nodejs.win.maximize()
+// ipc_send('max')
+*-*-*
+最小化窗口
+nodejs.win.minimize()
+// ipc_send('min')
+*-*-*
+恢复窗口
+nodejs.win.restore()
+*-*-*
+正常关闭窗口
+ipc_send('close')
+*-*-*
+强制关闭窗口
+ipc_send('exit')
+*-*-*
+隐藏窗口
+ipc_send('hide')
+*-*-*
+显示窗口
+ipc_send('show')
+*-*-*
+切换窗口显示
+ipc_send('toggleShow')
+*-*-*
+开启控制台
+ipc_send('devtool')
+// nodejs.win.toggleDevTools()
+*-*-*
+设置窗口位置
+nodejs.win.setBounds({x: 0, y: 0, width: 200, height: 200})
+*-*-*
+获取窗口位置
+console.info(nodejs.win.getBounds())
+*-*-*
+是否总在最前
+console.info(nodejs.win.isAlwaysOnTop())
+*-*-*
+切换窗口最前
+ipc_send('pin')
+*-*-*
+刷新
+ipc_send('reload')
+*-*-*
+切换全屏
+ipc_send('toggleFullscreen')
+*-*-*
+切换窗口最前
+ipc_send('pin')
+*-*-*
+切换窗口最前
+ipc_send('pin')
+*-*-*
+设置窗口进度条
+// val: 0 - 1
+// type(windows):  none, normal, indeterminate, error , paused.
+ipc_send('progress', {val: 0.5, type: 'indeterminate'})
+*-*-*
+新建窗口
+let _win = new nodejs.remote.BrowserWindow({
+    width: 500,
+    height: 500,
+    frame: true,
+    alwaysOnTop: false,
+    skipTaskbar: false,
+    resizeable: true,
+    webPreferences: {
+        nodeIntegration: true,
+        // preload: 'file://to/path/preload.js',
+    }
+})
+// _win.loadFile('to/path/index.html')
+_win.loadURL('https://www.baidu.com')
+*-*-*
+弹出消息提示
+showMessage('title', 'text')
+*-*-*
+弹出消息提示(高级)
+notifiMsg('title', {
+    text: 'text',
+    // icon: '', 
+    silent: false,
+    onclick: () => console.log('点击了'),
+    onclose: () => console.log('关闭了'),
+    onshow: () => console.log('展示了'),
+})

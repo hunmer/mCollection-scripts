@@ -1,0 +1,6 @@
+*-*-*
+复制文本
+ipc_send('copy', '我被复制啦') // nodejs.clipboard.writeText('...')
+*-*-*
+获取剪切板文本
+console.info(nodejs.clipboard.readText())

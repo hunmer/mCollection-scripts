@@ -1,0 +1,73 @@
+*-*-*
+文件是否存在
+console.info(nodejs.files.exists('c:/a.mp4'))
+*-*-*
+写入文件
+console.info(nodejs.files.write('c:/a.txt', 'hello', {}))
+*-*-*
+读取文件
+console.info(nodejs.files.read('c:/a.txt'))
+*-*-*
+删除文件
+console.info(nodejs.files.remove('c:/a.txt'))
+*-*-*
+复制文件
+console.info(nodejs.files.copySync('c:/old.txt', 'c:/new.txt'))
+*-*-*
+移动文件
+nodejs.files.move('c:/old.txt', 'c:/new.txt', {}, () => console.info('ok))
+*-*-*
+取文件md5
+console.info(nodejs.files.getFileMd5('c:/a.txt'))
+*-*-*
+取大文件md5
+nodejs.files.getMD5Hash('c:/a.txt', md5 => console.info(md5))
+*-*-*
+取所有盘符
+nodejs.files.getDrives().then(list => console.info(list))
+*-*-*
+随机md5
+console.info(nodejs.files.randomMd5())
+*-*-*
+取文本md5
+console.info(nodejs.files.getMd5('str'))
+*-*-*
+取文件信息
+console.info(nodejs.files.stat('c:/a.txt', true)) 
+*-*-*
+取文件名
+console.info(getFileName('c:/a.txt', true)) 
+*-*-*
+取后缀名
+console.info(getExtname('c:/a.txt')) 
+*-*-*
+转换文件大小
+console.info(renderSize(1024 * 1024 * 200)) // 200MB
+*-*-*
+执行cmd
+let result = ''
+nodejs.files.runCmd(`ipconfig`, output => result += output, () => console.info(result))
+*-*-*
+是否为文件
+console.info(nodejs.files.isFile('c:/a.txt')) 
+*-*-*
+是否为目录
+console.info(nodejs.files.isFile('c:/a/')) 
+*-*-*
+是否为空目录
+console.info(nodejs.files.isEmptyDir('c:/a/')) 
+*-*-*
+删除目录
+console.info(nodejs.files.removeDir('c:/a/')) 
+*-*-*
+保证目录存在
+nodejs.files.makeSureDir('c:/folder/')
+*-*-*
+枚举指定后缀名文件
+nodejs.files.dirFiles('c:/folder/', ['json', 'txt'], list => console.info(list))
+*-*-*
+遍历目录下的文件和文件夹
+nodejs.files.items('c:/', ret => console.info(ret))
+*-*-*
+图片文件转base64
+console.info(nodejs.files.getImageBase64('c:/a.jpg')) 

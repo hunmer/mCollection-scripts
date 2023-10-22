@@ -1,0 +1,22 @@
+*-*-*
+获取当前激活的标签页
+console.info('当前标签页id:'+g_datalist.getCurrentTab())
+console.info(g_datalist.tab_getData())
+*-*-*
+获取标签页的所有素材
+let tab_id = undefined
+console.info(g_datalist.tab_getItems(tab_id))
+*-*-*
+关闭标签页
+let tab_id = undefined
+g_datalist.tab_remove(tab_id)
+*-*-*
+刷新标签页
+let tab_id = undefined
+g_datalist.tab_reload(tab_id)
+*-*-*
+下一页
+g_datalist.getContainer().nextPage()
+*-*-*
+上一页
+g_datalist.getContainer().prevPage()

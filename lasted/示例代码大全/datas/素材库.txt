@@ -1,0 +1,17 @@
+*-*-*
+导入素材
+g_data.file_revice(['c://a.mp4', 'c://b.mp4'])
+*-*-*
+导入素材(高级)
+g_data.file_revice([{
+    file: 'c://a.mp4',
+    title: 'a',
+    importType: 'copy', // move=移动 link=链接 copy=复制
+    meta: {
+        url: 'https://www.baidu.com', // 引用链接
+        tags: [], // 标签id
+        folders: [], // 文件夹id
+        desc: '一段注释...',
+        score: 4, // 评分
+    }
+}]).then(({added, exists, error}) => console.info(`成功导入${added.length},已经存在${exists.length},导入失败:${error.length}`))

@@ -1,0 +1,377 @@
+*-*-*
+文本表单
+g_form.confirm1({
+    id: 'your_id',
+    title: '文本表单',
+    elements: {
+        text: {
+            title: '输入框',
+            placeholder: '输入文本',
+            type: 'text',
+            value: 'hello'
+        }
+    },
+    callback: ({vals}) => console.info(vals)
+})
+*-*-*
+长文本表单
+g_form.confirm1({
+    id: 'your_id',
+    title: '文本表单',
+    elements: {
+        textarea: {
+            title: '输入框',
+            placeholder: '输入文本',
+            type: 'textarea',
+            value: 'hello',
+            rows: 10,
+        }
+    },
+    callback: ({vals}) => console.info(vals)
+})
+*-*-*
+文件上传表单
+g_form.confirm1({
+    id: 'your_id',
+    title: '文件上传表单',
+    elements: {
+        file: {
+            title: '文件',
+            type: 'file',
+        }
+    },
+    callback: ({vals}) => console.info(vals)
+})
+*-*-*
+日期选择表单
+g_form.confirm1({
+    id: 'your_id',
+    title: '日期选择器',
+    elements: {
+        date: {
+            title: '日期',
+            type: 'date',
+            // value: new Date('2023-01-01'),
+            value: Date.now(),
+            opts: {}, // https://litepicker.com/docs/options
+        }
+    },
+    callback: ({vals}) => console.info(vals)
+}, {height: '100%'})
+*-*-*
+高级文件选择器
+g_form.confirm1({
+    id: 'your_id',
+    title: '高级文件选择器',
+    elements: {
+        files: {
+            title: '文件选择器',
+            type: 'file_chooser',
+            opts: { // https://www.electronjs.org/docs/latest/api/dialog
+                title: '选择文件',
+                // defaultPath: '',
+                properties: ['openFile'], // openDirectory = 选择目录, multiSelections = 多选
+            },
+            value: '',
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+复选框
+g_form.confirm1({
+    id: 'your_id',
+    title: '复选框',
+    elements: {
+        checkbox: {
+            title: '复选框',
+            type: 'checkbox',
+            value: false,
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+开关
+g_form.confirm1({
+    id: 'your_id',
+    title: '开关',
+    elements: {
+        switch: {
+            title: '开关',
+            type: 'switch',
+            value: false,
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+单选框
+g_form.confirm1({
+    id: 'your_id',
+    title: '单选框',
+    elements: {
+        radios: {
+            title: '开关',
+            type: 'radios',
+            list: {a: '选项A', b: '选项B', c: '选项C'},
+            // list: ['a', 'b', 'c'],
+            value: 'b',
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+搜索框
+g_form.confirm1({
+    id: 'your_id',
+    title: '搜索框',
+    elements: {
+        datalist: {
+            title: '搜索',
+            type: 'datalist',
+            list: {
+                a: '选项A',
+                b: '选项B',
+                c: '选项C'
+            },
+            // list: ['a', 'b', 'c'],
+            value: '',
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+范围选择
+g_form.confirm1({
+    id: 'your_id',
+    title: '范围选择',
+    elements: {
+        range: {
+            title: '范围选择',
+            type: 'range',
+            opts: {min: 0, max: 100, step: 1},
+            value: 20,
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+多选列表
+g_form.confirm1({
+    id: 'your_id',
+    title: '多选列表',
+    elements: {
+        checkbox_list: {
+            title: '多选列表',
+            type: 'checkbox_list',
+            list: {a: '选项A', b: '选项B', c: '选项C'},
+            // list: ['a', 'b', 'c'],
+            value: ['a', 'c'],
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+颜色选择
+g_form.confirm1({
+    id: 'your_id',
+    title: '颜色选择',
+    elements: {
+        color: {
+            title: '颜色选择',
+            type: 'colorInputs',
+            //list: {红色: '#e32636', 蓝色: '#5d8aa8'}, value: '红色',
+            list: ['#e32636', '#5d8aa8'], value: '#e32636',
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+图片裁剪
+g_form.confirm1({
+    id: 'your_id',
+    title: '图片裁剪',
+    elements: {
+        cropper: {
+            title: '图片裁剪',
+            type: 'cropper',
+            format: 'png',
+            opts: {}, // https://github.com/fengyuanchen/cropperjs/blob/main/README.md#options
+            value: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+多选带图片
+g_form.confirm1({
+    id: 'your_id',
+    title: '多选带图片',
+    elements: {
+        tom_select: {
+            title: '选择',
+            type: 'tom_select',
+            opts: {}, // https://tom-select.js.org/docs/
+            list: [{
+                img: 'https://www.baidu.com/favicon.ico',
+                value: 'baidu',
+                text: '百度'
+            }, {
+                img: 'https://www.bilibili.com/favicon.ico',
+                value: 'bilibili',
+                text: 'b站'
+            }],
+            value: ['bilibili'],
+            onInit() {
+                this.on('item_select', el=>console.info('item_select', el.value));
+                this.on('item_remove', id=>console.info('item_remove', id));
+            },
+            onChange() {
+                console.info({
+                    all: Object.keys(this.options),
+                    selected: this.getValue().split(',').sort()
+                })
+            }
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+选择列表
+g_form.confirm1({
+    id: 'your_id',
+    title: '选择列表',
+    elements: {
+        select: {
+            title: '选择列表',
+            type: 'select',
+            list: {a: '选项A', b: '选项B', c: '选项C'},
+            // list: ['a', 'b', 'c'],
+            value: ['a', 'c'],
+        }
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+层级选择器
+g_form.confirm1({
+    id: 'your_id',
+    title: '层级选择器',
+    elements: {
+        breadcrumb: {
+            title: '层级选择器',
+            type: 'breadcrumb',
+            value: 'a',
+            list: {
+                a: {list: ['a1']},
+                a1: {list: ['a2']},
+                a2: {list: []},
+                b: {list: ['b1']},
+                b1: {list: ['b2']},
+                b2: {list: []},
+            },
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+自定义html
+g_form.confirm1({
+    id: 'your_id',
+    title: 'html',
+    elements: {
+        html: {
+            title: '自定义html',
+            type: 'html',
+            value: `<h1 class="text-center mt-2">自定义html</h1>`,
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+头像上传
+g_form.confirm1({
+    id: 'your_id',
+    title: '头像上传',
+    elements: {
+        img: {
+            title: '头像上传',
+            type: 'image',
+            value: 'https://avatars.githubusercontent.com/u/15072292?s=48&v=4',
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+图标选择器
+g_form.confirm1({
+    id: 'your_id',
+    title: '图标选择器',
+    elements: {
+        icon: {
+            title: '图标',
+            type: 'icon',
+            value: 'list',
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+标签选择器
+g_form.confirm1({
+    id: 'your_id',
+    title: '标签选择器',
+    elements: {
+        tags: {
+            title: '标签',
+            type: 'tags',
+            value: [],
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+文件夹选择器
+g_form.confirm1({
+    id: 'your_id',
+    title: '文件夹选择器',
+    elements: {
+        tags: {
+            title: '文件夹',
+            type: 'folders',
+            value: [],
+        },
+    },
+    callback: ({vals})=>console.info(vals)
+})
+*-*-*
+合并表单
+g_form.confirm1({
+    id: 'your_id',
+    title: '合并表单',
+    elements: {
+        name: {
+            title: '姓名',
+            type: 'text',
+            required: true,
+        },
+        sex: {
+            title: '性别',
+            type: 'radios',
+            list: ['男', '女'],
+            required: true,
+        },
+        birthdays: {
+            title: '生日',
+            type: 'date',
+            value: Date.now(),
+        },
+        job: {
+            title: '职业',
+            type: 'select',
+            list: ['学生', '打工', '老板'],
+        },
+    },
+    callback: ({vals}) => console.info(vals)
+})
